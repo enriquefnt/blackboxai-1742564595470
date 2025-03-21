@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme colors -->
+    <color name="primary">#2196F3</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="primary_light">#BBDEFB</color>
+    <color name="accent">#FF4081</color>
+    <color name="accent_dark">#F50057</color>
+    <color name="accent_light">#FF80AB</color>
+
+    <!-- Basic colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#757575</color>
+    <color name="gray_light">#EEEEEE</color>
+    <color name="gray_dark">#424242</color>
+
+    <!-- Status colors -->
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FFC107</color>
+    <color name="error">#F44336</color>
+    <color name="info">#2196F3</color>
+
+    <!-- Chart colors -->
+    <color name="chart_line_weight">#2196F3</color>
+    <color name="chart_line_height">#4CAF50</color>
+    <color name="chart_line_bmi">#FF9800</color>
+    <color name="chart_reference_normal">#757575</color>
+    <color name="chart_reference_risk">#FFC107</color>
+    <color name="chart_reference_high_risk">#F44336</color>
+
+    <!-- Background colors -->
+    <color name="background_light">#FAFAFA</color>
+    <color name="background_dark">#121212</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="on_background_light">#000000</color>
+    <color name="on_background_dark">#FFFFFF</color>
+    <color name="on_surface_light">#000000</color>
+    <color name="on_surface_dark">#FFFFFF</color>
+
+    <!-- Ripple colors -->
+    <color name="ripple_light">#1F000000</color>
+    <color name="ripple_dark">#1FFFFFFF</color>
+
+    <!-- Divider colors -->
+    <color name="divider_light">#1F000000</color>
+    <color name="divider_dark">#1FFFFFFF</color>
+
+    <!-- Overlay colors -->
+    <color name="scrim">#52000000</color>
+    <color name="overlay_light">#0F000000</color>
+    <color name="overlay_dark">#0FFFFFFF</color>
+</resources>
