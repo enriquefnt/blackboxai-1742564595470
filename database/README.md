@@ -2,6 +2,11 @@
 
 Este directorio contiene los scripts SQL necesarios para configurar la base de datos del servidor.
 
+## Scripts Disponibles
+
+- `schema_mysql.sql`: Script para MySQL
+- `schema.sql`: Script para PostgreSQL (alternativo)
+
 ## Tablas Principales
 
 ### Users (Usuarios)
@@ -40,17 +45,19 @@ Este directorio contiene los scripts SQL necesarios para configurar la base de d
 - Z-scores calculados
 - Campos para diagnóstico y seguimiento
 
-## Implementación
+## Implementación en MySQL
 
-1. Asegúrate de tener PostgreSQL instalado
-2. Crea una base de datos:
+1. Crear la base de datos:
    ```sql
    CREATE DATABASE caseapp;
+   USE caseapp;
    ```
-3. Ejecuta el script schema.sql:
+
+2. Ejecutar el script:
    ```bash
-   psql -d caseapp -f schema.sql
+   mysql -u tu_usuario -p caseapp < schema_mysql.sql
    ```
+   O copiar y pegar el contenido en tu cliente MySQL preferido.
 
 ## Credenciales por Defecto
 
@@ -63,6 +70,8 @@ Usuario administrador inicial:
 
 - Las contraseñas se almacenan usando bcrypt
 - Todas las tablas tienen campos de auditoría (fecha_creacion, fecha_modificacion)
-- Los triggers actualizan automáticamente fecha_modificacion
+- MySQL actualiza automáticamente fecha_modificacion con triggers implícitos
 - Las eliminaciones son lógicas (campo activo)
 - Las relaciones cases->controls usan DELETE CASCADE
+- Se usa UTF-8 (utf8mb4) para soporte completo de caracteres
+- InnoDB como motor de almacenamiento para soporte de transacciones y claves foráneas
