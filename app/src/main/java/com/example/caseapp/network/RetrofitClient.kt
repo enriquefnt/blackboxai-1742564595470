@@ -38,7 +38,7 @@ class RetrofitClient private constructor(context: Context) {
     fun getApiService(): ApiService = apiService
 
     companion object {
-        private const val BASE_URL = "https://api.example.com/" // Cambiar por la URL real de la API
+        private const val BASE_URL = "109.106.251.18" // Cambiar por la URL real de la API
 
         @Volatile
         private var instance: RetrofitClient? = null
