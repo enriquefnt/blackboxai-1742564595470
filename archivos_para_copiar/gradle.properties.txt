@@ -1,0 +1,28 @@
+=== Contenido de gradle.properties ===
+# Project-wide Gradle settings
+org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+android.useAndroidX=true
+android.enableJetifier=true
+kotlin.code.style=official
+
+# Kotlin
+kotlin.incremental=true
+kotlin.incremental.java=true
+kotlin.incremental.js=true
+kotlin.caching.enabled=true
+kotlin.parallel.tasks.in.project=true
+
+# Android
+android.nonTransitiveRClass=true
+android.defaults.buildfeatures.buildconfig=true
+android.defaults.buildfeatures.aidl=false
+android.defaults.buildfeatures.renderscript=false
+android.defaults.buildfeatures.resvalues=true
+android.defaults.buildfeatures.shaders=false
+
+# Performance
+org.gradle.parallel=true
+org.gradle.caching=true
+org.gradle.configureondemand=true
+=== Fin del archivo ===
+
