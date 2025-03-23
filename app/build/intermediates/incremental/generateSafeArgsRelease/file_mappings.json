@@ -1,1 +1,0 @@
-[{"navFile":"src/main/res/navigation/nav_graph.xml","javaFiles":["com.example.caseapp.ui.cases.CasesListFragmentDirections","com.example.caseapp.ui.cases.CaseEntryFragmentArgs","com.example.caseapp.ui.cases.CaseDetailsFragmentDirections","com.example.caseapp.ui.cases.CaseDetailsFragmentArgs","com.example.caseapp.ui.controls.ControlEntryFragmentArgs"]}]
