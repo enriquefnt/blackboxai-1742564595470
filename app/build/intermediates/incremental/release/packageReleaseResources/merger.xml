@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res"><file name="ic_calendar" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/drawable/ic_calendar.xml" qualifiers="" type="drawable"/><file name="ic_empty_state" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/drawable/ic_empty_state.xml" qualifiers="" type="drawable"/><file name="ic_add" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/drawable/ic_add.xml" qualifiers="" type="drawable"/><file name="ic_delete" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/drawable/ic_delete.xml" qualifiers="" type="drawable"/><file name="ic_lock" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/drawable/ic_lock.xml" qualifiers="" type="drawable"/><file name="ic_edit" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/drawable/ic_edit.xml" qualifiers="" type="drawable"/><file name="ic_search" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/drawable/ic_search.xml" qualifiers="" type="drawable"/><file name="ic_person" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/drawable/ic_person.xml" qualifiers="" type="drawable"/><file name="ic_sync" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/drawable/ic_sync.xml" qualifiers="" type="drawable"/><file name="activity_login" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/layout/activity_login.xml" qualifiers="" type="layout"/><file name="item_control" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/layout/item_control.xml" qualifiers="" type="layout"/><file name="fragment_cases_list" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/layout/fragment_cases_list.xml" qualifiers="" type="layout"/><file name="fragment_case_details" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/layout/fragment_case_details.xml" qualifiers="" type="layout"/><file name="fragment_case_controls" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/layout/fragment_case_controls.xml" qualifiers="" type="layout"/><file name="fragment_case_info" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/layout/fragment_case_info.xml" qualifiers="" type="layout"/><file name="item_case" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/layout/item_case.xml" qualifiers="" type="layout"/><file name="activity_main" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/layout/activity_main.xml" qualifiers="" type="layout"/><file name="fragment_case_entry" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/layout/fragment_case_entry.xml" qualifiers="" type="layout"/><file name="fragment_chart" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/layout/fragment_chart.xml" qualifiers="" type="layout"/><file path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/values-night/themes.xml" qualifiers="night-v8"><style name="Theme.CaseApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/primary_light</item>
+        <item name="colorPrimaryVariant">@color/primary</item>
+        <item name="colorOnPrimary">@color/black</item>
+        
+        
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSecondaryVariant">@color/accent</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        
+        <item name="android:colorBackground">@color/background_dark</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnBackground">@color/on_background_dark</item>
+        <item name="colorOnSurface">@color/on_surface_dark</item>
+        
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        
+        
+        <item name="textAppearanceHeadline5">@style/TextAppearance.CaseApp.Headline5.Dark</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.CaseApp.Subtitle1.Dark</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.CaseApp.Body1.Dark</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.CaseApp.Body2.Dark</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.CaseApp.Caption.Dark</item>
+    </style><style name="TextAppearance.CaseApp.Headline5.Dark" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style><style name="TextAppearance.CaseApp.Subtitle1.Dark" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style><style name="TextAppearance.CaseApp.Body1.Dark" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style><style name="TextAppearance.CaseApp.Body2.Dark" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#B3FFFFFF</item>
+    </style><style name="TextAppearance.CaseApp.Caption.Dark" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#B3FFFFFF</item>
+    </style><style name="Theme.CaseApp.NoActionBar" parent="Theme.CaseApp">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/background_dark</item>
+    </style></file><file path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/values/colors.xml" qualifiers=""><color name="primary">#2196F3</color><color name="primary_dark">#1976D2</color><color name="primary_light">#BBDEFB</color><color name="accent">#FF4081</color><color name="accent_dark">#F50057</color><color name="accent_light">#FF80AB</color><color name="white">#FFFFFF</color><color name="black">#000000</color><color name="gray">#757575</color><color name="gray_light">#EEEEEE</color><color name="gray_dark">#424242</color><color name="success">#4CAF50</color><color name="warning">#FFC107</color><color name="error">#F44336</color><color name="info">#2196F3</color><color name="chart_line_weight">#2196F3</color><color name="chart_line_height">#4CAF50</color><color name="chart_line_bmi">#FF9800</color><color name="chart_reference_normal">#757575</color><color name="chart_reference_risk">#FFC107</color><color name="chart_reference_high_risk">#F44336</color><color name="background_light">#FAFAFA</color><color name="background_dark">#121212</color><color name="surface_light">#FFFFFF</color><color name="surface_dark">#1E1E1E</color><color name="on_background_light">#000000</color><color name="on_background_dark">#FFFFFF</color><color name="on_surface_light">#000000</color><color name="on_surface_dark">#FFFFFF</color><color name="ripple_light">#1F000000</color><color name="ripple_dark">#1FFFFFFF</color><color name="divider_light">#1F000000</color><color name="divider_dark">#1FFFFFFF</color><color name="scrim">#52000000</color><color name="overlay_light">#0F000000</color><color name="overlay_dark">#0FFFFFFF</color></file><file path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/values/themes.xml" qualifiers=""><style name="Theme.CaseApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSecondaryVariant">@color/accent</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        
+        
+        <item name="textAppearanceHeadline5">@style/TextAppearance.CaseApp.Headline5</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.CaseApp.Subtitle1</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.CaseApp.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.CaseApp.Body2</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.CaseApp.Caption</item>
+        
+        
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.CaseApp.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.CaseApp.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.CaseApp.LargeComponent</item>
+    </style><style name="TextAppearance.CaseApp.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style><style name="TextAppearance.CaseApp.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style><style name="TextAppearance.CaseApp.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style><style name="TextAppearance.CaseApp.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style><style name="TextAppearance.CaseApp.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style><style name="ShapeAppearance.CaseApp.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style><style name="ShapeAppearance.CaseApp.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style><style name="ShapeAppearance.CaseApp.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style><style name="Theme.CaseApp.NoActionBar" parent="Theme.CaseApp">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style></file><file path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/values/strings.xml" qualifiers=""><string name="app_name">CaseApp</string><string name="ok">OK</string><string name="cancel">Cancelar</string><string name="save">Guardar</string><string name="edit">Editar</string><string name="delete">Eliminar</string><string name="search">Buscar</string><string name="error">Error</string><string name="loading">Cargando…</string><string name="retry">Reintentar</string><string name="case_details">Detalles del Caso</string><string name="personal_info">Información Personal</string><string name="birth_date_format">Fecha de Nacimiento: %s</string><string name="gender_format">Sexo: %s</string><string name="male">Masculino</string><string name="female">Femenino</string><string name="document_number_format">Documento: %s</string><string name="created_date_format">Creado: %s</string><string name="modified_date_format">Modificado: %s</string><string name="last_control">Último Control</string><string name="control_date_format">Fecha: %s</string><string name="weight_format">%.1f kg</string><string name="height_format">%.1f cm</string><string name="bmi_format">%.1f</string><string name="weight_for_age_format">P/E: %.1f</string><string name="height_for_age_format">T/E: %.1f</string><string name="bmi_for_age_format">IMC/E: %.1f</string><string name="diagnosis_format">Diagnóstico: %s</string><string name="next_appointment_format">Próxima cita: %s</string><string name="new_control">Nuevo Control</string><string name="metadata">Metadatos</string><string name="weight_for_age">Peso para Edad</string><string name="height_for_age">Talla para Edad</string><string name="bmi_for_age">IMC para Edad</string><string name="no_data_available">No hay datos disponibles</string><string name="no_controls_found">No se encontraron controles</string><string name="confirm_delete">Confirmar Eliminación</string><string name="delete_case_message">¿Está seguro que desea eliminar este caso? Esta acción no se puede deshacer.</string><string name="delete_control_message">¿Está seguro que desea eliminar este control? Esta acción no se puede deshacer.</string><string name="tab_info">Información</string><string name="tab_controls">Controles</string></file><file name="nav_graph" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/navigation/nav_graph.xml" qualifiers="" type="navigation"/><file name="backup_rules" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/xml/backup_rules.xml" qualifiers="" type="xml"/><file name="data_extraction_rules" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/xml/data_extraction_rules.xml" qualifiers="" type="xml"/><file name="main_menu" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/menu/main_menu.xml" qualifiers="" type="menu"/><file name="case_details_menu" path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/main/res/menu/case_details_menu.xml" qualifiers="" type="menu"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="release$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/release/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="release" generated-set="release$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/src/release/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/build/generated/res/resValues/release"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/enrique/local_web/websites/blackboxai-1742564595470/app/build/generated/res/resValues/release"/></dataSet><mergedItems/></merger>
