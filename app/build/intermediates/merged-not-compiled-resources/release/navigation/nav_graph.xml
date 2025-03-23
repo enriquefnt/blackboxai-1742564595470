@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/casesListFragment">
+
+    <fragment
+        android:id="@+id/casesListFragment"
+        android:name="com.example.caseapp.ui.cases.CasesListFragment"
+        android:label="@string/case_list">
+        <action
+            android:id="@+id/action_casesList_to_caseEntry"
+            app:destination="@id/caseEntryFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_casesList_to_caseDetails"
+            app:destination="@id/caseDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_casesList_to_controlEntry"
+            app:destination="@id/controlEntryFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/caseEntryFragment"
+        android:name="com.example.caseapp.ui.cases.CaseEntryFragment"
+        android:label="@string/new_case">
+        <argument
+            android:name="caseId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/caseDetailsFragment"
+        android:name="com.example.caseapp.ui.cases.CaseDetailsFragment"
+        android:label="@string/case_details">
+        <argument
+            android:name="caseId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_caseDetails_to_caseEntry"
+            app:destination="@id/caseEntryFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_caseDetails_to_controlEntry"
+            app:destination="@id/controlEntryFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/controlEntryFragment"
+        android:name="com.example.caseapp.ui.controls.ControlEntryFragment"
+        android:label="@string/new_control">
+        <argument
+            android:name="caseId"
+            app:argType="integer" />
+        <argument
+            android:name="controlId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Incluir la base de datos Room -->
+    <include domain="database" path="." />
+    <!-- Incluir las preferencias compartidas -->
+    <include domain="sharedpref" path="." />
+    <!-- Excluir archivos temporales -->
+    <exclude domain="file" path="temp"/>
+</full-backup-content>
