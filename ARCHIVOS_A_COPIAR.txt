@@ -1,0 +1,61 @@
+# Archivos a copiar a tu repositorio local
+
+1. Archivos en la raíz:
+- README.md
+- MIGRATION.md
+- CHANGELOG.md
+- QUICKSTART.md
+- build.gradle
+- settings.gradle
+- gradle.properties
+- install.sh
+- generate-apk.sh
+- build-release.sh
+- gradlew
+- gradlew.bat
+
+2. Archivos en /app:
+- app/build.gradle
+- app/proguard-rules.pro
+- app/keystore.properties
+
+3. Archivos en /gradle/wrapper:
+- gradle/wrapper/gradle-wrapper.properties
+
+4. Archivos en /database:
+- database/schema_mysql.sql
+- database/README.md
+- database/setup_mysql.sh
+
+Pasos para copiar:
+
+1. En tu computadora local:
+```bash
+# Clonar tu repositorio
+git clone https://github.com/enriquefnt/blackboxai-1742564595470.git
+cd blackboxai-1742564595470
+
+# Crear directorios necesarios
+mkdir -p app/release
+mkdir -p gradle/wrapper
+mkdir -p database
+```
+
+2. Copiar los archivos:
+   - Descarga cada archivo de este repositorio
+   - Colócalos en la misma estructura de directorios en tu repositorio local
+
+3. Subir los cambios:
+```bash
+git add .
+git commit -m "Actualización completa con scripts de instalación"
+git push origin main
+```
+
+4. Generar el APK:
+```bash
+chmod +x install.sh
+./install.sh
+```
+
+El APK se generará en: app/release/CaseApp-v1.1.0.apk
