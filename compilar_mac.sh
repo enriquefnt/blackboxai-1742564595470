@@ -6,153 +6,65 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-echo -e "${YELLOW}Compilador de CaseApp para macOS${NC}"
+echo -e "${YELLOW}Compilador Completo de CaseApp para macOS${NC}"
 echo "----------------------------------------"
 
-# Verificar Java
-echo -e "\n${YELLOW}1. Verificando Java...${NC}"
+# Función para verificar resultado
+check_result() {
+    if [ $? -eq 0 ]; then
+        echo -e "${GREEN}✓ OK${NC}"
+    else
+        echo -e "${RED}✗ Error: $1${NC}"
+        exit 1
+    fi
+}
+
+# 1. Crear recursos
+echo -e "\n${YELLOW}1. Creando recursos necesarios...${NC}"
+./crear_recursos.sh
+check_result "Creación de recursos"
+
+# 2. Verificar Java
+echo -e "\n${YELLOW}2. Verificando Java...${NC}"
 if ! command -v java &> /dev/null; then
-    echo -e "${RED}Error: Java no está instalado${NC}"
-    echo "Instala Java 17 usando Homebrew:"
-    echo "brew tap homebrew/cask-versions"
-    echo "brew install --cask temurin17"
-    exit 1
+    echo -e "${RED}Java no está instalado. Instalando...${NC}"
+    brew tap homebrew/cask-versions
+    brew install --cask zulu17
+    check_result "Instalación de Java"
+else
+    java_version=$(java -version 2>&1 | head -n 1)
+    echo -e "${GREEN}Java instalado: $java_version${NC}"
 fi
 
-# Crear directorios
-echo -e "\n${YELLOW}2. Creando directorios...${NC}"
+# 3. Verificar Android SDK
+echo -e "\n${YELLOW}3. Verificando Android SDK...${NC}"
+if ! command -v sdkmanager &> /dev/null; then
+    echo -e "${RED}Android SDK no encontrado. Instalando...${NC}"
+    brew install android-commandlinetools
+    check_result "Instalación de Android SDK"
+fi
+
+# 4. Limpiar instalación anterior
+echo -e "\n${YELLOW}4. Limpiando instalación anterior...${NC}"
+rm -rf app/release app/build build .gradle
 mkdir -p app/release gradle/wrapper
+check_result "Limpieza"
 
-# Configurar Gradle Wrapper
-echo -e "\n${YELLOW}3. Configurando Gradle...${NC}"
+# 5. Configurar Android SDK
+echo -e "\n${YELLOW}5. Configurando Android SDK...${NC}"
+ANDROID_SDK_ROOT=$(brew --prefix)/share/android-commandlinetools
+echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+check_result "Configuración de Android SDK"
 
-# gradle-wrapper.properties
-cat > gradle/wrapper/gradle-wrapper.properties << 'EOF'
-distributionBase=GRADLE_USER_HOME
-distributionPath=wrapper/dists
-distributionUrl=https\://services.gradle.org/distributions/gradle-8.4-bin.zip
-zipStoreBase=GRADLE_USER_HOME
-zipStorePath=wrapper/dists
-EOF
-
-# Descargar gradle-wrapper.jar
-echo -e "\n${YELLOW}4. Descargando Gradle Wrapper...${NC}"
+# 6. Configurar Gradle
+echo -e "\n${YELLOW}6. Configurando Gradle...${NC}"
 curl -L -o gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/gradle/gradle/v8.4.0/gradle/wrapper/gradle-wrapper.jar
-
-# Crear build.gradle
-echo -e "\n${YELLOW}5. Creando archivos de configuración...${NC}"
-cat > build.gradle << 'EOF'
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.4'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.20'
-        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.6.0'
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-    }
-}
-
-tasks.register('clean', Delete) {
-    delete rootProject.buildDir
-}
-EOF
-
-# Crear app/build.gradle
-cat > app/build.gradle << 'EOF'
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id 'androidx.navigation.safeargs.kotlin'
-}
-
-android {
-    namespace 'com.example.caseapp'
-    compileSdk 34
-
-    defaultConfig {
-        applicationId "com.example.caseapp"
-        minSdk 24
-        targetSdk 34
-        versionCode 2
-        versionName "1.1.0"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
-
-    kotlinOptions {
-        jvmTarget = '17'
-    }
-}
-
-dependencies {
-    implementation 'androidx.core:core-ktx:1.12.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.10.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-}
-EOF
-
-# Crear settings.gradle
-cat > settings.gradle << 'EOF'
-pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-    }
-}
-
-rootProject.name = "CaseApp"
-include ':app'
-EOF
-
-# Crear gradle.properties
-cat > gradle.properties << 'EOF'
-org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
-android.useAndroidX=true
-android.enableJetifier=true
-kotlin.code.style=official
-EOF
-
-# Crear gradlew
-echo -e "\n${YELLOW}6. Creando scripts de Gradle...${NC}"
-curl -o gradlew https://raw.githubusercontent.com/gradle/gradle/master/gradlew
 chmod +x gradlew
+check_result "Configuración de Gradle"
 
-# Generar keystore
+# 7. Generar keystore
 echo -e "\n${YELLOW}7. Generando keystore...${NC}"
+rm -f app/release/keystore.jks
 keytool -genkey -v \
         -keystore app/release/keystore.jks \
         -alias caseapp \
@@ -162,25 +74,32 @@ keytool -genkey -v \
         -storepass caseapp123 \
         -keypass caseapp123 \
         -dname "CN=CaseApp, OU=Development, O=CaseApp, L=City, ST=State, C=US"
+check_result "Generación de keystore"
 
-# Compilar APK
+# 8. Compilar APK con información detallada
 echo -e "\n${YELLOW}8. Compilando APK...${NC}"
-./gradlew clean assembleRelease
+./gradlew clean assembleRelease --info
+check_result "Compilación"
 
-# Verificar si se generó el APK
+# Verificar resultado final
 if [ -f "app/build/outputs/apk/release/app-release.apk" ]; then
     cp app/build/outputs/apk/release/app-release.apk app/release/CaseApp-v1.1.0.apk
     echo -e "\n${GREEN}¡APK generado exitosamente!${NC}"
-    echo "Ubicación: app/release/CaseApp-v1.1.0.apk"
+    echo "----------------------------------------"
+    echo "El APK está en: app/release/CaseApp-v1.1.0.apk"
+    echo -e "\nCredenciales:"
+    echo "- Usuario: admin"
+    echo "- Contraseña: admin123"
 else
     echo -e "\n${RED}Error: No se pudo generar el APK${NC}"
+    echo "Revisa los mensajes de error anteriores"
     exit 1
 fi
 
-echo -e "\n${GREEN}¡Proceso completado!${NC}"
-echo "----------------------------------------"
-echo "El APK está en: app/release/CaseApp-v1.1.0.apk"
-echo "Credenciales:"
-echo "- Usuario: admin"
-echo "- Contraseña: admin123"
-echo "----------------------------------------"
+# Mostrar logs si hay errores
+if [ $? -ne 0 ]; then
+    echo -e "\n${YELLOW}Logs de error:${NC}"
+    cat app/build/outputs/logs/manifest-merger-release-report.txt 2>/dev/null
+    echo -e "\n${YELLOW}Para más detalles, ejecuta:${NC}"
+    echo "./gradlew assembleRelease --debug"
+fi
