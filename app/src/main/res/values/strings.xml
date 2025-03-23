@@ -1,56 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">CaseApp</string>
-
-    <!-- Common -->
-    <string name="ok">OK</string>
-    <string name="cancel">Cancelar</string>
-    <string name="save">Guardar</string>
-    <string name="edit">Editar</string>
-    <string name="delete">Eliminar</string>
+    <string name="login_prompt">Iniciar Sesión</string>
+    <string name="username_hint">Usuario</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="login_button">Entrar</string>
+    <string name="login_failed">Error de inicio de sesión</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="invalid_username">Usuario no válido</string>
+    <string name="invalid_password">Contraseña debe tener >5 caracteres</string>
+    <string name="sync_status">Estado de sincronización</string>
+    <string name="sync_now">Sincronizar ahora</string>
+    <string name="add_case">Agregar caso</string>
     <string name="search">Buscar</string>
-    <string name="error">Error</string>
-    <string name="loading">Cargando…</string>
-    <string name="retry">Reintentar</string>
-
-    <!-- Case Details -->
-    <string name="case_details">Detalles del Caso</string>
-    <string name="personal_info">Información Personal</string>
-    <string name="birth_date_format">Fecha de Nacimiento: %s</string>
-    <string name="gender_format">Sexo: %s</string>
-    <string name="male">Masculino</string>
-    <string name="female">Femenino</string>
-    <string name="document_number_format">Documento: %s</string>
-    <string name="created_date_format">Creado: %s</string>
-    <string name="modified_date_format">Modificado: %s</string>
-
-    <!-- Controls -->
-    <string name="last_control">Último Control</string>
-    <string name="control_date_format">Fecha: %s</string>
-    <string name="weight_format">%.1f kg</string>
-    <string name="height_format">%.1f cm</string>
-    <string name="bmi_format">%.1f</string>
-    <string name="weight_for_age_format">P/E: %.1f</string>
-    <string name="height_for_age_format">T/E: %.1f</string>
-    <string name="bmi_for_age_format">IMC/E: %.1f</string>
-    <string name="diagnosis_format">Diagnóstico: %s</string>
-    <string name="next_appointment_format">Próxima cita: %s</string>
-    <string name="new_control">Nuevo Control</string>
-    <string name="metadata">Metadatos</string>
-
-    <!-- Charts -->
-    <string name="weight_for_age">Peso para Edad</string>
-    <string name="height_for_age">Talla para Edad</string>
-    <string name="bmi_for_age">IMC para Edad</string>
-    <string name="no_data_available">No hay datos disponibles</string>
-    <string name="no_controls_found">No se encontraron controles</string>
-
-    <!-- Dialogs -->
-    <string name="confirm_delete">Confirmar Eliminación</string>
-    <string name="delete_case_message">¿Está seguro que desea eliminar este caso? Esta acción no se puede deshacer.</string>
-    <string name="delete_control_message">¿Está seguro que desea eliminar este control? Esta acción no se puede deshacer.</string>
-
-    <!-- Navigation -->
-    <string name="tab_info">Información</string>
-    <string name="tab_controls">Controles</string>
+    <string name="case_details">Detalles del caso</string>
+    <string name="case_info">Información</string>
+    <string name="case_controls">Controles</string>
+    <string name="edit_case">Editar caso</string>
+    <string name="delete_case">Eliminar caso</string>
+    <string name="add_control">Agregar control</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="empty_cases">No hay casos registrados</string>
+    <string name="empty_controls">No hay controles registrados</string>
 </resources>
