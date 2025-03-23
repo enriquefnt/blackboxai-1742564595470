@@ -41,7 +41,7 @@ check_result
 # 3. Instalar Java 17
 echo -e "\n${YELLOW}3. Instalando Java 17...${NC}"
 brew tap homebrew/cask-versions
-brew install --cask temurin17
+brew install --cask temurin
 check_result
 
 # 4. Configurar JAVA_HOME
