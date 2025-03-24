@@ -1,6 +1,0 @@
-# Crear el archivo gradlew
-cat > gradlew << 'EOF'
-#!/bin/bash
-./gradle/wrapper/gradle-wrapper.jar
-EOF
-chmod +x gradlew
