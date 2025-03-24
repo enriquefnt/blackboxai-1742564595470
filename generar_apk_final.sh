@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-echo -e "${YELLOW}Compilador Completo de CaseApp para macOS${NC}"
+echo -e "${YELLOW}Generador Final de APK para macOS${NC}"
 echo "----------------------------------------"
 
 # Función para verificar resultado
@@ -19,13 +19,23 @@ check_result() {
     fi
 }
 
-# 1. Crear recursos
-echo -e "\n${YELLOW}1. Creando recursos necesarios...${NC}"
+# 1. Diagnóstico inicial
+echo -e "\n${YELLOW}1. Ejecutando diagnóstico...${NC}"
+./diagnosticar_mac.sh
+check_result "Diagnóstico"
+
+# 2. Limpiar todo
+echo -e "\n${YELLOW}2. Limpiando archivos anteriores...${NC}"
+./limpiar_mac.sh
+check_result "Limpieza"
+
+# 3. Crear recursos
+echo -e "\n${YELLOW}3. Creando recursos...${NC}"
 ./crear_recursos.sh
 check_result "Creación de recursos"
 
-# 2. Verificar Java
-echo -e "\n${YELLOW}2. Verificando Java...${NC}"
+# 4. Verificar Java
+echo -e "\n${YELLOW}4. Verificando Java...${NC}"
 if ! command -v java &> /dev/null; then
     echo -e "${RED}Java no está instalado. Instalando...${NC}"
     brew tap homebrew/cask-versions
@@ -36,34 +46,28 @@ else
     echo -e "${GREEN}Java instalado: $java_version${NC}"
 fi
 
-# 3. Verificar Android SDK
-echo -e "\n${YELLOW}3. Verificando Android SDK...${NC}"
+# 5. Verificar Android SDK
+echo -e "\n${YELLOW}5. Verificando Android SDK...${NC}"
 if ! command -v sdkmanager &> /dev/null; then
     echo -e "${RED}Android SDK no encontrado. Instalando...${NC}"
     brew install android-commandlinetools
     check_result "Instalación de Android SDK"
 fi
 
-# 4. Limpiar instalación anterior
-echo -e "\n${YELLOW}4. Limpiando instalación anterior...${NC}"
-rm -rf app/release app/build build .gradle
-mkdir -p app/release gradle/wrapper
-check_result "Limpieza"
-
-# 5. Configurar Android SDK
-echo -e "\n${YELLOW}5. Configurando Android SDK...${NC}"
+# 6. Configurar Android SDK
+echo -e "\n${YELLOW}6. Configurando Android SDK...${NC}"
 ANDROID_SDK_ROOT=$(brew --prefix)/share/android-commandlinetools
 echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
 check_result "Configuración de Android SDK"
 
-# 6. Configurar Gradle
-echo -e "\n${YELLOW}6. Configurando Gradle...${NC}"
+# 7. Configurar Gradle
+echo -e "\n${YELLOW}7. Configurando Gradle...${NC}"
 curl -L -o gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/gradle/gradle/v8.4.0/gradle/wrapper/gradle-wrapper.jar
 chmod +x gradlew
 check_result "Configuración de Gradle"
 
-# 7. Generar keystore
-echo -e "\n${YELLOW}7. Generando keystore...${NC}"
+# 8. Generar keystore
+echo -e "\n${YELLOW}8. Generando keystore...${NC}"
 rm -f app/release/keystore.jks
 keytool -genkey -v \
         -keystore app/release/keystore.jks \
@@ -76,8 +80,8 @@ keytool -genkey -v \
         -dname "CN=CaseApp, OU=Development, O=CaseApp, L=City, ST=State, C=US"
 check_result "Generación de keystore"
 
-# 8. Compilar APK con información detallada
-echo -e "\n${YELLOW}8. Compilando APK...${NC}"
+# 9. Compilar APK con información detallada
+echo -e "\n${YELLOW}9. Compilando APK...${NC}"
 ./gradlew clean assembleRelease --info
 check_result "Compilación"
 
