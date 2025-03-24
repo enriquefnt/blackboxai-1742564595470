@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-echo -e "${YELLOW}Generador de APK para macOS${NC}"
+echo -e "${YELLOW}Generador Final de APK para macOS v2${NC}"
 echo "----------------------------------------"
 
 # Función para verificar resultado
@@ -19,8 +19,18 @@ check_result() {
     fi
 }
 
-# 1. Verificar Java
-echo -e "\n${YELLOW}1. Verificando Java...${NC}"
+# 1. Limpiar todo
+echo -e "\n${YELLOW}1. Limpiando archivos anteriores...${NC}"
+./limpiar_mac.sh
+check_result "Limpieza"
+
+# 2. Crear iconos
+echo -e "\n${YELLOW}2. Creando iconos...${NC}"
+./crear_iconos.sh
+check_result "Creación de iconos"
+
+# 3. Verificar Java
+echo -e "\n${YELLOW}3. Verificando Java...${NC}"
 if ! command -v java &> /dev/null; then
     echo -e "${RED}Java no está instalado. Instalando...${NC}"
     brew tap homebrew/cask-versions
@@ -31,24 +41,13 @@ else
     echo -e "${GREEN}Java instalado: $java_version${NC}"
 fi
 
-# 2. Verificar Android SDK
-echo -e "\n${YELLOW}2. Verificando Android SDK...${NC}"
+# 4. Verificar Android SDK
+echo -e "\n${YELLOW}4. Verificando Android SDK...${NC}"
 if ! command -v sdkmanager &> /dev/null; then
     echo -e "${RED}Android SDK no encontrado. Instalando...${NC}"
     brew install android-commandlinetools
     check_result "Instalación de Android SDK"
 fi
-
-# 3. Verificar recursos
-echo -e "\n${YELLOW}3. Verificando recursos...${NC}"
-./verificar_recursos.sh
-check_result "Verificación de recursos"
-
-# 4. Limpiar instalación anterior
-echo -e "\n${YELLOW}4. Limpiando instalación anterior...${NC}"
-rm -rf app/release app/build build .gradle
-mkdir -p app/release gradle/wrapper
-check_result "Limpieza"
 
 # 5. Configurar Android SDK
 echo -e "\n${YELLOW}5. Configurando Android SDK...${NC}"
