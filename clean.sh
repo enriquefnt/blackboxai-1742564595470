@@ -1,56 +1,27 @@
 #!/bin/bash
+# Backup
+cp build_apk.sh README.md /tmp/
 
-# Colores para mensajes
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m'
+# Reset
+cd ..
+rm -rf user-workspace
+git clone https://github.com/enriquefnt/blackboxai-1742564595470.git user-workspace
+cd user-workspace
 
-echo -e "${YELLOW}Limpiando repositorio...${NC}"
+# Clean
+rm -rf *
+rm -f .*
 
-# Archivos a conservar
-KEEP=(
-    "build_apk_mac.sh"
-    "README.md"
-    ".git"
-    ".gitignore"
-)
+# Restore
+cp /tmp/build_apk.sh .
+cp /tmp/README.md .
+chmod +x build_apk.sh
 
-# Crear lista de archivos a eliminar
-FILES_TO_DELETE=()
-for file in *; do
-    if [[ ! " ${KEEP[@]} " =~ " ${file} " ]]; then
-        FILES_TO_DELETE+=("$file")
-    fi
-done
+# Git
+git config --global user.email "enriquefnt@gmail.com"
+git config --global user.name "enriquefnt"
+git add .
+git commit -m "Clean"
+git push -f
 
-# Eliminar archivos
-if [ ${#FILES_TO_DELETE[@]} -gt 0 ]; then
-    echo -e "\n${YELLOW}Eliminando archivos innecesarios...${NC}"
-    rm -rf "${FILES_TO_DELETE[@]}"
-fi
-
-# Crear .gitignore si no existe
-if [ ! -f ".gitignore" ]; then
-    echo -e "\n${YELLOW}Creando .gitignore...${NC}"
-    cat > .gitignore << 'EOF'
-*.iml
-.gradle
-/local.properties
-/.idea
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
-app/build/
-app/release/
-EOF
-fi
-
-echo -e "\n${GREEN}¡Repositorio limpiado!${NC}"
-echo "----------------------------------------"
-echo "Archivos conservados:"
 ls -la
-echo "----------------------------------------"
