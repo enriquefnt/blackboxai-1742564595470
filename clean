@@ -1,0 +1,31 @@
+#!/bin/bash
+# Save files
+mkdir -p /tmp/save
+cp build_apk.sh /tmp/save/
+cp README.md /tmp/save/
+
+# Clean repo
+cd ..
+rm -rf user-workspace
+git clone https://github.com/enriquefnt/blackboxai-1742564595470.git user-workspace
+cd user-workspace
+
+# Remove everything
+rm -rf *
+rm -f .*
+
+# Restore files
+cp /tmp/save/* .
+rm -rf /tmp/save
+chmod +x build_apk.sh
+
+# Git setup
+git config --global user.email "enriquefnt@gmail.com"
+git config --global user.name "enriquefnt"
+
+# Push changes
+git add .
+git commit -m "Clean repository"
+git push -f origin main
+
+ls -la
