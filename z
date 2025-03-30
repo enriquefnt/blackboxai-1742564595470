@@ -1,0 +1,17 @@
+#!/bin/bash
+cp build_apk.sh README.md /tmp/
+cd ..
+rm -rf user-workspace
+mkdir user-workspace
+cd user-workspace
+git init
+git remote add origin https://github.com/enriquefnt/blackboxai-1742564595470.git
+cp /tmp/build_apk.sh .
+cp /tmp/README.md .
+chmod +x build_apk.sh
+git config --global user.email "enriquefnt@gmail.com"
+git config --global user.name "enriquefnt"
+git add .
+git commit -m "Reset"
+git branch -M main
+git push -f origin main
